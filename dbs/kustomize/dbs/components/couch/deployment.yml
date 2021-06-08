@@ -29,6 +29,12 @@ spec:
           configMap:
             name: couchdb-config
       hostname: couchdb
+      securityContext:
+        fsGroup: 5984
+      dnsConfig:
+        options:
+          - name: ndots
+            value: "1"
       containers:
       - image: couchdb:latest
         imagePullPolicy: IfNotPresent
